@@ -4,6 +4,11 @@ signal hovered
 signal hovered_off
 
 var starting_position
+var card_in_slot
+var card_type: String
+@onready var attack_label: RichTextLabel = %AttackLabel
+@onready var health_label: RichTextLabel = %HealthLabel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

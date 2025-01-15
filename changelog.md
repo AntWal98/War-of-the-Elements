@@ -2,6 +2,17 @@
 
 Single-player card game based on masterpieces such as Magic: the Gathering and Pokemon. This will serve as a running changelog for the game.
 
+## V0.0.2(b)
+
+### New Additions
+* Added opponent side of the field
+* Began adding "End Turn" button
+* Added some text for card (will probably take off though and use artwork)
+
+### Changes
+* Reformatted screen size to fit materials on screen better.
+* Resized some things
+
 ## V0.0.2
 
 ### New Additions
