@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://duqhqdm0vtl5i"]
+[gd_scene load_steps=8 format=3 uid="uid://duqhqdm0vtl5i"]
 
 [ext_resource type="PackedScene" uid="uid://cscrhhxvpt3fj" path="res://Scenes/card_slot.tscn" id="1_mi5yq"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_sokew"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://221tq6oywkxu" path="res://Scenes/deck.tscn" id="4_72epp"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="5_o4mdn"]
 [ext_resource type="Texture2D" uid="uid://dkwr5dx60e375" path="res://Assets/images/Cards/StandardCard.png" id="6_tabh8"]
+[ext_resource type="PackedScene" uid="uid://dy6t38pcjghcw" path="res://Scenes/dice.tscn" id="7_omcl2"]
 
 [node name="Main" type="Node2D"]
 
@@ -102,3 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 text = "0"
+
+[node name="Dice" parent="." instance=ExtResource("7_omcl2")]
+position = Vector2(593, 435)
+scale = Vector2(0.4, 0.4)

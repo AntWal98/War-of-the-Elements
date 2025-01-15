@@ -2,6 +2,11 @@
 
 Single-player card game based on masterpieces such as Magic: the Gathering and Pokemon. This will serve as a running changelog for the game.
 
+## V0.0.2(c)
+
+###New Additions
+* Added beginnings of a dice system
+
 ## V0.0.2(b)
 
 ### New Additions
