@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://baqx00tqhnvkp"]
+
+[ext_resource type="Texture2D" uid="uid://busplp0ypis8s" path="res://Assets/Art/DeckImage-Fire.png" id="1_6cp0w"]
+[ext_resource type="Script" path="res://Scripts/Player/player_deck.gd" id="1_wts10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcl2y"]
+size = Vector2(61, 91)
+
+[node name="PlayerDeck" type="Node2D"]
+script = ExtResource("1_wts10")
+
+[node name="DeckImage" type="Sprite2D" parent="."]
+scale = Vector2(0.184, 0.184)
+texture = ExtResource("1_6cp0w")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_jcl2y")
+
+[node name="DeckCount" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -20.0
+offset_top = 6.0
+offset_right = 20.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1

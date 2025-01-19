@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1c7w7wca3hec"]
+
+[ext_resource type="Script" path="res://Scripts/FieldMaterials/opp_monster_card_slot.gd" id="1_abm31"]
+[ext_resource type="Texture2D" uid="uid://c3ak6h75wqep8" path="res://Assets/Art/Slots/CreatureSlot.png" id="2_2n2p8"]
+
+[node name="Opp_MonsterSlot" type="Node2D"]
+z_index = -2
+script = ExtResource("1_abm31")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.104, 0.104)
+texture = ExtResource("2_2n2p8")

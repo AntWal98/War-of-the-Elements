@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0v8xbo0bbtv2"]
+
+[ext_resource type="Texture2D" uid="uid://7a2f2kk3dlxe" path="res://Assets/Art/BestestBeanStudios-Color.png" id="1_xujcp"]
+[ext_resource type="Script" path="res://Scripts/Interface/credits_menu.gd" id="1_ycj24"]
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ycj24")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 240.0
+offset_top = 56.0
+offset_right = 240.0
+offset_bottom = 556.0
+grow_horizontal = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_xujcp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.114897, 0.114897, 0.114897, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -43.0
+offset_right = 82.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Developer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Developed By: AntWal"
+horizontal_alignment = 1
+
+[node name="BestestBeanStudios" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Bestest Bean Studios"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+text = "Return to Menu"
+
+[connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

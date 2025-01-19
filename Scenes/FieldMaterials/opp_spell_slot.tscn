@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd52sgacu8sfp"]
+
+[ext_resource type="Script" path="res://Scripts/FieldMaterials/opp_spell_card_slot.gd" id="1_3ycsk"]
+[ext_resource type="Texture2D" uid="uid://d1gxtm08305qu" path="res://Assets/Art/Slots/SpellSlot.png" id="2_ux3db"]
+
+[node name="Opp_SpellSlot" type="Node2D"]
+z_index = -2
+script = ExtResource("1_3ycsk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.104, 0.104)
+texture = ExtResource("2_ux3db")
