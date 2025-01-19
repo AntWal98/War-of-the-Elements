@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmkimqyscjna2"]
+
+[ext_resource type="Script" path="res://Scripts/Opponent/opp_hand.gd" id="1_j3kjj"]
+
+[node name="OppHand" type="Node2D"]
+script = ExtResource("1_j3kjj")

@@ -1,0 +1,215 @@
+[gd_scene load_steps=19 format=3 uid="uid://bjpfvwpnk8l4t"]
+
+[ext_resource type="PackedScene" uid="uid://bnubitbhekwkp" path="res://Scenes/FieldMaterials/player_monster_card_slot.tscn" id="1_5jlk2"]
+[ext_resource type="PackedScene" uid="uid://cj1rl64bfsn0a" path="res://Scenes/FieldMaterials/player_spell_card_slot.tscn" id="2_sx6wd"]
+[ext_resource type="PackedScene" uid="uid://d1c7w7wca3hec" path="res://Scenes/FieldMaterials/opp_monster_slot.tscn" id="3_ior51"]
+[ext_resource type="PackedScene" uid="uid://dd52sgacu8sfp" path="res://Scenes/FieldMaterials/opp_spell_slot.tscn" id="4_kvsum"]
+[ext_resource type="Script" path="res://Scripts/Player/player_hand.gd" id="5_e4m3l"]
+[ext_resource type="PackedScene" uid="uid://baqx00tqhnvkp" path="res://Scenes/Player/player_deck.tscn" id="6_x1ykh"]
+[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="7_jl4jv"]
+[ext_resource type="Script" path="res://Scripts/card_manager.gd" id="7_tfpqt"]
+[ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="8_mpq6i"]
+[ext_resource type="Texture2D" uid="uid://b10flaqfg14xb" path="res://Assets/Art/FieldArt/FireGuardian.png" id="9_0cano"]
+[ext_resource type="Script" path="res://Scripts/ability_manager.gd" id="9_5vtqy"]
+[ext_resource type="Script" path="res://Scenes/Interface/labels.gd" id="9_aaphx"]
+[ext_resource type="Texture2D" uid="uid://c4j8v1igtap4p" path="res://Assets/Art/FieldArt/IceGuardian.png" id="10_fg2uo"]
+[ext_resource type="PackedScene" uid="uid://cwg08mcdgg7n4" path="res://Scenes/FieldMaterials/dice.tscn" id="11_fikt2"]
+[ext_resource type="Texture2D" uid="uid://b83gimmi5w2pq" path="res://Assets/Art/Slots/GraveyardSlot.png" id="12_cdan1"]
+[ext_resource type="Script" path="res://Scripts/Opponent/opp_deck.gd" id="15_g5crn"]
+[ext_resource type="Texture2D" uid="uid://dgjoapwva5t2x" path="res://Assets/Art/DeckImage-Water.png" id="15_trf3m"]
+[ext_resource type="PackedScene" uid="uid://bmkimqyscjna2" path="res://Scenes/Opponent/opp_hand.tscn" id="16_t522e"]
+
+[node name="Main" type="Node2D"]
+
+[node name="PlayerSide" type="ColorRect" parent="."]
+visible = false
+z_index = -10
+offset_top = 336.0
+offset_right = 640.0
+offset_bottom = 482.0
+color = Color(0.686275, 0.882353, 0.686275, 0.376471)
+
+[node name="Opponent Side" type="ColorRect" parent="."]
+visible = false
+z_index = -10
+offset_right = 640.0
+offset_bottom = 146.0
+color = Color(1, 0.341176, 0.2, 0.376471)
+
+[node name="Battlefield" type="ColorRect" parent="."]
+visible = false
+z_index = -10
+offset_top = 144.0
+offset_right = 640.0
+offset_bottom = 338.0
+color = Color(0.402205, 0.593804, 0.924509, 0.376471)
+
+[node name="CardSlots" type="Node2D" parent="."]
+
+[node name="Player_MonsterCardSlot" parent="CardSlots" instance=ExtResource("1_5jlk2")]
+position = Vector2(199.1, 247.6)
+
+[node name="Player_MonsterCardSlot2" parent="CardSlots" instance=ExtResource("1_5jlk2")]
+position = Vector2(302.4, 247.6)
+
+[node name="Player_MonsterCardSlot3" parent="CardSlots" instance=ExtResource("1_5jlk2")]
+position = Vector2(406.3, 247.6)
+
+[node name="Player_SpellCardSlot" parent="CardSlots" instance=ExtResource("2_sx6wd")]
+position = Vector2(406.6, 304.5)
+
+[node name="Player_SpellCardSlot2" parent="CardSlots" instance=ExtResource("2_sx6wd")]
+position = Vector2(302.4, 304.5)
+
+[node name="Player_SpellCardSlot3" parent="CardSlots" instance=ExtResource("2_sx6wd")]
+position = Vector2(199.1, 304.5)
+
+[node name="Opp_MonsterSlot" parent="CardSlots" instance=ExtResource("3_ior51")]
+position = Vector2(199.1, 167.4)
+
+[node name="Opp_MonsterSlot2" parent="CardSlots" instance=ExtResource("3_ior51")]
+position = Vector2(302.4, 167.4)
+
+[node name="Opp_MonsterSlot3" parent="CardSlots" instance=ExtResource("3_ior51")]
+position = Vector2(406.3, 167.4)
+
+[node name="Opp_SpellSlot" parent="CardSlots" instance=ExtResource("4_kvsum")]
+position = Vector2(199.1, 110.2)
+
+[node name="Opp_SpellSlot2" parent="CardSlots" instance=ExtResource("4_kvsum")]
+position = Vector2(302.4, 110.2)
+
+[node name="Opp_SpellSlot3" parent="CardSlots" instance=ExtResource("4_kvsum")]
+position = Vector2(406.3, 110.2)
+
+[node name="PlayerHand" type="Node2D" parent="."]
+script = ExtResource("5_e4m3l")
+
+[node name="PlayerDeck" parent="." instance=ExtResource("6_x1ykh")]
+position = Vector2(96, 400)
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="InputManager" type="Node2D" parent="Managers"]
+unique_name_in_owner = true
+script = ExtResource("7_jl4jv")
+
+[node name="BattleManager" type="Node" parent="Managers"]
+unique_name_in_owner = true
+script = ExtResource("8_mpq6i")
+
+[node name="AbilityManager" type="Node" parent="Managers/BattleManager"]
+script = ExtResource("9_5vtqy")
+
+[node name="CardManager" type="Node2D" parent="Managers"]
+unique_name_in_owner = true
+script = ExtResource("7_tfpqt")
+
+[node name="Labels" type="Node" parent="."]
+script = ExtResource("9_aaphx")
+
+[node name="PhaseLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -80.0
+offset_right = -23.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Draw
+Phase"
+horizontal_alignment = 1
+
+[node name="PlayerDeckGuardian" type="Sprite2D" parent="Labels"]
+position = Vector2(96, 288)
+texture = ExtResource("9_0cano")
+
+[node name="PlayerLifeLabel" type="Label" parent="Labels/PlayerDeckGuardian"]
+unique_name_in_owner = true
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="OppDeckGuardian" type="Sprite2D" parent="Labels"]
+position = Vector2(96, 96)
+texture = ExtResource("10_fg2uo")
+
+[node name="OppLifeLabel" type="Label" parent="Labels/OppDeckGuardian"]
+unique_name_in_owner = true
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="Dice" parent="." instance=ExtResource("11_fikt2")]
+position = Vector2(592, 208)
+scale = Vector2(0.5, 0.5)
+
+[node name="PlayerGraveyard" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerGraveyard"]
+position = Vector2(528, 296)
+scale = Vector2(0.104, 0.104)
+texture = ExtResource("12_cdan1")
+
+[node name="TurnButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 36)
+offset_left = 48.0
+offset_top = 176.0
+offset_right = 144.0
+offset_bottom = 216.0
+text = "End Turn"
+
+[node name="BattleTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Opponent" type="Node" parent="."]
+
+[node name="OppGraveyard" type="Node2D" parent="Opponent"]
+unique_name_in_owner = true
+position = Vector2(0, -168)
+
+[node name="Sprite2D" type="Sprite2D" parent="Opponent/OppGraveyard"]
+position = Vector2(528, 296)
+rotation = 3.14159
+scale = Vector2(0.104, 0.104)
+texture = ExtResource("12_cdan1")
+
+[node name="OppDeck" type="Node2D" parent="Opponent"]
+position = Vector2(552, 40)
+scale = Vector2(0.184, 0.184)
+script = ExtResource("15_g5crn")
+
+[node name="OppDeckCount" type="Label" parent="Opponent/OppDeck"]
+unique_name_in_owner = true
+offset_left = -27.1741
+offset_top = 54.3478
+offset_right = 41.8259
+offset_bottom = 219.348
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+text = "0"
+horizontal_alignment = 1
+
+[node name="OppDeckImage" type="Sprite2D" parent="Opponent/OppDeck"]
+z_index = -1
+texture = ExtResource("15_trf3m")
+
+[node name="OppHand" parent="Opponent" instance=ExtResource("16_t522e")]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="TurnButton" to="Managers/BattleManager" method="_on_turn_button_pressed"]
